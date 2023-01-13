@@ -44,3 +44,44 @@ function initAccordion() {
     }
 }
 initAccordion()
+
+function scrollSystem() {
+    const menuList = document.querySelectorAll('.js-menu a[href^="#"]')
+
+    function scrollToSection(event) {
+        event.preventDefault()
+
+        const href = this.getAttribute('href')
+        const section = document.querySelector(href)
+
+        section.scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+        })
+    }
+
+    menuList.forEach((menuItem) => {
+        menuItem.addEventListener('click', scrollToSection)
+    })
+}
+scrollSystem()
+
+function sectionAnimation() {
+
+    const sections = document.querySelectorAll('.js-scroll')
+    const halfHeight = window.innerHeight * 0.95
+
+    if (sections) {
+        function animateSec() {
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top
+                if (sectionTop < halfHeight) {
+                    section.classList.add('active')
+                }
+            })
+        }
+
+        window.addEventListener('scroll', animateSec)
+    }
+}
+sectionAnimation()
