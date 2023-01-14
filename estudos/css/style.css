@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: #495057;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.navigation {
+  height: 100vh;
+  grid-column: 1;
+  background-color: #212529;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 50px;
+  gap: 20px;
+}
+.navigation .tech-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.navigation .tech-card .tech-name {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  background-color: #343a40;
+  width: 120px;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+.navigation .tech-card .tech-name::after {
+  content: "∨";
+  color: #16191b;
+}
+.navigation .tech-card .tech-name.ativo::after {
+  content: "∧";
+  color: #16191b;
+}
+.navigation .tech-card .tech-name:hover {
+  transition: all 0.1s;
+  background-color: #3f474e;
+}
+.navigation .tech-card .tech-itens {
+  display: none !important;
+  background-color: #6c757d;
+  width: 120px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0 0 0;
+  border-radius: 4px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+.navigation .tech-card .tech-itens.ativo {
+  display: flex !important;
+  -webkit-animation: show 1s forwards;
+          animation: show 1s forwards;
+}
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -5px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -5px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.navigation .tech-card .tech-itens .tech-item {
+  cursor: pointer;
+}
+.navigation .tech-card .tech-itens .tech-item:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */

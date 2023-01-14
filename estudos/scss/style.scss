@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+$bg: #495057;
+$header: #212529;
+$item-bg: #343a40;
+
+@mixin font($size: 1em, $height: 'normal') {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: $size;
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: $bg;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.navigation {
+    height: 100vh;
+    grid-column: 1;
+    background-color: $header;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    padding-top: 50px;
+    gap: 20px;
+    .tech-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        .tech-name {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            align-items: center;
+            background-color: $item-bg;
+            width: 120px;
+            padding: 10px;
+            border-radius: 4px;
+            @include font(18px, bold);
+            &::after {
+                content: '∨';
+                color: #16191b;
+            }
+            &.ativo::after {
+                content: '∧';
+                color: #16191b;
+            }
+            &:hover {
+                transition: all .1s;
+                background-color: #3f474e;
+            }
+        }
+        .tech-itens {
+            display: none !important;
+            
+            background-color: #6c757d;
+            width: 120px;
+            padding: 10px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            
+            margin: 10px 0 0 0;
+            border-radius: 4px;
+            @include font(15px);
+            &.ativo {
+                display: flex !important;
+                animation: show 1s forwards;
+                @keyframes show {
+                    from {
+                        opacity: 0;
+                        transform: translate3d(0, -5px, 0);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+            }
+
+
+            .tech-item {
+                cursor: pointer;
+                &:hover {
+                text-decoration: underline;
+                }
+            }
+        }
+    }
+}
