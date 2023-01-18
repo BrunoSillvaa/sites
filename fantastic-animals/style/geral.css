@@ -16,7 +16,7 @@
     --red: #E54;
 }
 
-body {
+[data-main="container"] {
     -webkit-font-smoothing: antialiased;
 
     background-color: var(--bg);
@@ -48,6 +48,57 @@ body {
 
     display: block;
     padding: 10px;
+}
+
+[data-dropdown] {
+    position: relative;
+}
+
+[data-dropdown] .dropdown-menu {
+    display: none ;
+}
+
+[data-dropdown]:hover .dropdown-menu,
+[data-dropdown].ativo .dropdown-menu {
+    display: block !important;
+    animation: show-up .3s forwards;
+}
+
+.dropdown-menu {
+    background: var(--red);
+    border: 2px solid var(--grey);
+    position: absolute;
+    top: 38px;
+    z-index: 200;
+}
+
+.dropdown-menu li a {
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: bold;
+}
+
+.dropdown-menu:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--red);
+}
+
+@keyframes show-up {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .grid-section {
