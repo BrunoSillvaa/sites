@@ -1,10 +1,10 @@
 import clickOutside from "./click-outside.js"
 
 export default function dropDownMenu() {
-    const dropdownItens = document.querySelectorAll('[data-dropdown]')
+    const dropdownMenu = document.querySelectorAll('[data-dropdown]')
     
-
-    dropdownItens.forEach(dropdownItem => {
+    // Adiciona eventos a cada dropdown
+    dropdownMenu.forEach(dropdownItem => {
         ['touchstart', 'click'].forEach(userEvent => {
             dropdownItem.addEventListener(userEvent, toggleDropDown)
         })
@@ -12,8 +12,10 @@ export default function dropDownMenu() {
     
     function toggleDropDown(event) {
         event.preventDefault()
-    
-        this.classList.toggle('ativo')
+        
+        // Adiciona a classe ativo para mostrar o dropdown menu
+        this.classList.add('ativo')
+        // Aciona a funcao para verificar o clique fora do menu
         clickOutside(this, ['touchstart', 'click'], () => {
             this.classList.remove('ativo')
         })
