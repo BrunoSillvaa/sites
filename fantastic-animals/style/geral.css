@@ -16,7 +16,7 @@
     --red: #E54;
 }
 
-[data-main="container"] {
+.grid-container {
     -webkit-font-smoothing: antialiased;
 
     background-color: var(--bg);
@@ -73,9 +73,13 @@
 }
 
 .dropdown-menu li a {
-    color: var(--bg);
+    color: var(--grey);
     font-family: 'IBM Plex Mono', monospace;
     font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--bg);
 }
 
 .dropdown-menu:before {
@@ -246,7 +250,7 @@
 }
 
 @media (max-width: 700px) {
-    body {
+    .grid-container {
         grid-template-columns: 1fr;
     }
     .menu, .grid-section, .copy {

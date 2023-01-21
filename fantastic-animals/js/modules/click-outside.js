@@ -5,18 +5,18 @@ export default function clickOutside(element, events, callback) {
     // Verifica se o atributo outside existe no elemento
     if (!element.hasAttribute(outside)) {
         events.forEach(userEvent => {
-            html.addEventListener(userEvent, removeOutside)
+            setTimeout(() => html.addEventListener(userEvent, handleOutsideClick))
         })
 
         element.setAttribute(outside, '')
     }
 
-    function removeOutside(event) {
+    function handleOutsideClick(event) {
         // Verifica se o clique foi fora do dropdown menu
         if (!element.contains(event.target)) {
             element.removeAttribute(outside)
             events.forEach(userEvent => {
-                html.removeEventListener(userEvent, removeOutside)
+                html.removeEventListener(userEvent, handleOutsideClick)
             })
             callback()
         }

@@ -9,9 +9,11 @@
     <title>Animais Fantásticos</title>
 </head>
 <body>
-    <div data-main="container">
+    <div class="grid-container">
+
         <nav class="menu" data-menu="soft">
-            <ul>
+            <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
+            <ul data-menu="list" id="menu">
                 <li><a href="#animais" data-menu="item">Animais</a></li>
                 <li data-dropdown>
                     <a href="#sobre" data-menu="item">Sobre</a>
@@ -27,6 +29,7 @@
                 <li><a href="#" data-modal="start">Entrar →</a></li>
             </ul>
         </nav>
+
         <section class="grid-section animais active" data-anime="scroll" id="animais">
             <h1 class="titulo">Animais Fantásticos</h1>
             <ul class="animais-lista" data-tab="list">
@@ -82,6 +85,7 @@
                 </section>
             </div>
         </section>
+
         <section class="grid-section faq" data-anime="scroll" id="faq">
             <h1 class="titulo">FAQ</h1>
             <dl class="faq-list" data-anime="accordian">
@@ -95,6 +99,37 @@
                 <dd>Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas verticais dos felídeos.</dd>
             </dl>
         </section>
+
+        <section class="grid-section numeros" data-anime="scroll">
+            <h1 class="titulo">Numeros</h1>
+            <div class="numeros-grid">
+                <div class="numero-animal">
+                    <h3>Raposas</h3>
+                    <span data-numero>257</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Esquilos</h3>
+                    <span data-numero>5248</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Ursos</h3>
+                    <span data-numero>4852</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Lobos</h3>
+                    <span data-numero>127</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Macacos</h3>
+                    <span data-numero>8524</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Leoes</h3>
+                    <span data-numero>258</span>
+                </div>
+            </div>
+        </section>
+
         <section class="grid-section contato" data-anime="scroll" id="contato">
             <h1 class="titulo">Contato</h1>
             <div class="mapa" data-tooltip aria-label="Endereço próximo ao estacionamento">
@@ -107,6 +142,7 @@
                 <li>Rio de Janeiro</li>
             </ul>
         </section>
+
         <footer class="copy" data-anime="scroll">
             <p>Todos os direitos reservados</p>
         </footer>

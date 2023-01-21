@@ -14,7 +14,7 @@ export default function dropDownMenu() {
         event.preventDefault()
         
         // Adiciona a classe ativo para mostrar o dropdown menu
-        this.classList.add('ativo')
+        this.classList.toggle('ativo')
         // Aciona a funcao para verificar o clique fora do menu
         clickOutside(this, ['touchstart', 'click'], () => {
             this.classList.remove('ativo')
